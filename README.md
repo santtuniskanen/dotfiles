@@ -1,3 +1,3 @@
 # Dotfiles
 
-This repository holds dotfiles that are used to customize most of the terminal utilities I use.
+This repository holds configuration files for various command line utilities I use on all of my UNIX-based systems.
