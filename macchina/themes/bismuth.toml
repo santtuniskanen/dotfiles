@@ -1,6 +1,6 @@
 separator="∑"
-separator_color="#FFA500"
-key_color="#FFA500"
+separator_color="#c8f902"
+key_color="#c8f902"
 prefer_small_ascii = true
 
 padding = 0
@@ -18,7 +18,7 @@ visible=true
 
 
 [custom_ascii]
-color="#FFA500"
+color="#c8f902"
 path="~/.config/macchina/themes/ascii/bismuth.txt"
 
 
