@@ -1,0 +1,109 @@
+format = """
+[](#9A348E)\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$nodejs\
+$rust\
+$golang\
+$python\
+$docker_context\
+$os\
+$time\
+$cmd_duration\
+$line_break\
+$character"""
+
+# Disable the blank line at the start of the prompt
+add_newline = false
+
+[character]
+success_symbol = "[❯](green)"
+error_symbol = "[❯](red)"
+vicmd_symbol = "[❮](green)"
+
+[directory]
+style = "blue"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ""
+format = '[ $symbol $branch ]($style)'
+style = "bright-black"
+
+[git_status]
+format = '[$all_status$ahead_behind ]($style)'
+style = "bright-black"
+conflicted = "🏳"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+up_to_date = ""
+untracked = "?${count}"
+stashed = "*"
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "✘${count}"
+
+[golang]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+
+[nodejs]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+
+[python]
+symbol = ""
+format = '[ $symbol ${version} ]($style)'
+python_binary = ["./venv/bin/python", "python", "python3", "python2"]
+detect_extensions = ["py"]
+
+[rust]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+
+[time]
+disabled = false
+format = '[ $os $time ]($style)'
+time_format = "%R"
+style = "bright-black"
+
+[docker_context]
+symbol = ""
+format = '[ $symbol $context ]($style)'
+style = "blue"
+only_with_files = true
+
+[cmd_duration]
+min_time = 500
+format = "[$duration]($style)"
+style = "yellow"
+
+[os]
+format = "[$symbol]($style)"
+style = "bright-orange"
+disabled = false
+
+[os.symbols]
+Macos = ""
+Ubuntu = ""
+
+[hostname]
+ssh_only = false
+format = "[$hostname]($style)"
+trim_at = ".local"
+style = "bright-black"
+disabled = false
+
+[username]
+style_user = "purple"
+style_root = "red"
+format = "[$user]($style)"
+disabled = false
+show_always = true
