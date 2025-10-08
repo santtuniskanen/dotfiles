@@ -1,109 +1,144 @@
+# Red Fox Starship Configuration
+# Save this as ~/.config/starship.toml
+
+# Color palette
+# bg: #1a1d2e
+# fg: #f5e6d3
+# orange: #ff6b35
+# red: #d94f3d
+# green: #e8b4a0
+# yellow: #ffb085
+# blue: #6b7a8f
+# cyan: #8fa8a0
+# rose: #b8405e
+
 format = """
-[](#9A348E)\
+[](fg:#ff6b35)\
+$os\
 $username\
-$hostname\
+[](bg:#d94f3d fg:#ff6b35)\
 $directory\
+[](fg:#d94f3d bg:#e8b4a0)\
 $git_branch\
 $git_status\
-$nodejs\
-$rust\
+[](fg:#e8b4a0 bg:#8fa8a0)\
+$c\
+$elixir\
+$elm\
 $golang\
+$gradle\
+$haskell\
+$java\
+$julia\
+$nodejs\
+$nim\
+$rust\
+$scala\
 $python\
+[](fg:#8fa8a0 bg:#6b7a8f)\
 $docker_context\
-$os\
+[](fg:#6b7a8f bg:#4a5568)\
 $time\
-$cmd_duration\
+[ ](fg:#4a5568)\
 $line_break\
 $character"""
 
 # Disable the blank line at the start of the prompt
 add_newline = false
 
-[character]
-success_symbol = "[❯](green)"
-error_symbol = "[❯](red)"
-vicmd_symbol = "[❮](green)"
+# OS symbol
+[os]
+style = "bg:#ff6b35 fg:#1a1d2e"
+disabled = false
 
+[os.symbols]
+Fedora = " "
+Ubuntu = " "
+Linux = " "
+Macos = " "
+
+# Username
+[username]
+show_always = true
+style_user = "bg:#ff6b35 fg:#1a1d2e"
+style_root = "bg:#ff6b35 fg:#1a1d2e"
+format = '[ $user ]($style)'
+disabled = false
+
+# Directory
 [directory]
-style = "blue"
+style = "bg:#d94f3d fg:#f5e6d3"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
 
-[git_branch]
-symbol = ""
-format = '[ $symbol $branch ]($style)'
-style = "bright-black"
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
 
+# Git branch
+[git_branch]
+symbol = "󰊢"
+style = "bg:#e8b4a0 fg:#1a1d2e"
+format = '[ $symbol $branch ]($style)'
+
+# Git status
 [git_status]
+style = "bg:#e8b4a0 fg:#1a1d2e"
 format = '[$all_status$ahead_behind ]($style)'
-style = "bright-black"
-conflicted = "🏳"
+conflicted = "="
 ahead = "⇡${count}"
 behind = "⇣${count}"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 up_to_date = ""
 untracked = "?${count}"
-stashed = "*"
+stashed = "$${count}"
 modified = "!${count}"
 staged = "+${count}"
 renamed = "»${count}"
 deleted = "✘${count}"
 
-[golang]
-symbol = ""
+# Programming languages
+[c]
+symbol = ""
+style = "bg:#8fa8a0 fg:#1a1d2e"
 format = '[ $symbol ($version) ]($style)'
 
-[nodejs]
-symbol = ""
+[docker_context]
+symbol = " "
+style = "bg:#6b7a8f fg:#f5e6d3"
+format = '[ $symbol $context ]($style)'
+
+[golang]
+symbol = "󰟓"
+style = "bg:#8fa8a0 fg:#1a1d2e"
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = ""
+style = "bg:#8fa8a0 fg:#1a1d2e"
 format = '[ $symbol ($version) ]($style)'
 
 [python]
 symbol = ""
-format = '[ $symbol ${version} ]($style)'
-python_binary = ["./venv/bin/python", "python", "python3", "python2"]
-detect_extensions = ["py"]
-
-[rust]
-symbol = ""
+style = "bg:#8fa8a0 fg:#1a1d2e"
 format = '[ $symbol ($version) ]($style)'
 
+# Time
 [time]
 disabled = false
-format = '[ $os $time ]($style)'
-time_format = "%R"
-style = "bright-black"
+time_format = "%R" # Hour:Minute Format
+style = "bg:#4a5568 fg:#f5e6d3"
+format = '[ $time ]($style)'
 
-[docker_context]
-symbol = ""
-format = '[ $symbol $context ]($style)'
-style = "blue"
-only_with_files = true
-
-[cmd_duration]
-min_time = 500
-format = "[$duration]($style)"
-style = "yellow"
-
-[os]
-format = "[$symbol]($style)"
-style = "bright-orange"
+# Line break
+[line_break]
 disabled = false
 
-[os.symbols]
-Macos = ""
-Ubuntu = ""
-
-[hostname]
-ssh_only = false
-format = "[$hostname]($style)"
-trim_at = ".local"
-style = "bright-black"
-disabled = false
-
-[username]
-style_user = "purple"
-style_root = "red"
-format = "[$user]($style)"
-disabled = false
-show_always = true
+# Character (prompt symbol)
+[character]
+success_symbol = "[❯](bold #ff6b35)"
+error_symbol = "[❯](bold #d94f3d)"
+vimcmd_symbol = "[❮](bold #ff6b35)"

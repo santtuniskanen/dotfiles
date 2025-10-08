@@ -1,0 +1,217 @@
+/* Red Fox Waybar Theme
+ * Save this as ~/.config/waybar/style.css
+ */
+
+* {
+    font-family: "JetBrainsMono Nerd Font", "Noto Sans", sans-serif;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: #1a1d2e;
+    color: #f5e6d3;
+    border-bottom: 2px solid #2d3142;
+}
+
+/* Workspaces */
+#workspaces button {
+    padding: 0 8px;
+    color: #f5e6d3;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+}
+
+#workspaces button.focused {
+    background: #ff6b35;
+    color: #1a1d2e;
+    font-weight: bold;
+}
+
+#workspaces button.active {
+    background: #232738;
+    color: #ff6b35;
+}
+
+#workspaces button.urgent {
+    background: #d94f3d;
+    color: #ffffff;
+}
+
+#workspaces button:hover {
+    background: #2d3142;
+    color: #ff6b35;
+}
+
+/* All modules */
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#mpd,
+#bluetooth,
+#custom-power {
+    padding: 0 12px;
+    margin: 0 2px;
+    color: #f5e6d3;
+    background: #232738;
+}
+
+/* Clock - accent color */
+#clock {
+    background: #2d3142;
+    color: #ff6b35;
+    font-weight: bold;
+}
+
+/* Battery states */
+#battery.charging {
+    background: #e8b4a0;
+    color: #1a1d2e;
+}
+
+#battery.warning:not(.charging) {
+    background: #ffb085;
+    color: #1a1d2e;
+}
+
+#battery.critical:not(.charging) {
+    background: #d94f3d;
+    color: #ffffff;
+    animation: blink 0.5s linear infinite alternate;
+}
+
+@keyframes blink {
+    to {
+        background: #ff6b35;
+    }
+}
+
+/* CPU warning */
+#cpu.warning {
+    background: #ffb085;
+    color: #1a1d2e;
+}
+
+#cpu.critical {
+    background: #d94f3d;
+    color: #ffffff;
+}
+
+/* Memory warning */
+#memory.warning {
+    background: #ffb085;
+    color: #1a1d2e;
+}
+
+#memory.critical {
+    background: #d94f3d;
+    color: #ffffff;
+}
+
+/* Temperature */
+#temperature.critical {
+    background: #d94f3d;
+    color: #ffffff;
+}
+
+/* Network states */
+#network.disconnected {
+    background: #4a4e69;
+    color: #d0c4b3;
+}
+
+/* Pulseaudio muted */
+#pulseaudio.muted,
+#wireplumber.muted {
+    background: #4a4e69;
+    color: #d0c4b3;
+}
+
+/* Bluetooth */
+#bluetooth.connected {
+    background: #6b7a8f;
+    color: #ffffff;
+}
+
+#bluetooth.disconnected {
+    background: #4a4e69;
+    color: #d0c4b3;
+}
+
+/* Mode (resize, etc) */
+#mode {
+    background: #ff6b35;
+    color: #1a1d2e;
+    font-weight: bold;
+}
+
+/* Idle inhibitor */
+#idle_inhibitor.activated {
+    background: #ff6b35;
+    color: #1a1d2e;
+}
+
+/* Scratchpad */
+#scratchpad.empty {
+    background: transparent;
+}
+
+/* Tray */
+#tray {
+    background: #232738;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background: #d94f3d;
+}
+
+/* Custom power button */
+#custom-power {
+    background: #b8405e;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+#custom-power:hover {
+    background: #d16666;
+}
+
+/* MPD */
+#mpd.playing {
+    background: #8fa8a0;
+    color: #1a1d2e;
+}
+
+#mpd.paused {
+    background: #4a4e69;
+    color: #d0c4b3;
+}
+
+/* Tooltips */
+tooltip {
+    background: #232738;
+    border: 2px solid #ff6b35;
+    border-radius: 4px;
+}
+
+tooltip label {
+    color: #f5e6d3;
+}

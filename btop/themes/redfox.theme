@@ -1,0 +1,79 @@
+# Red Fox btop theme
+
+# Main background and foreground
+theme[main_bg]="#1a1d2e"
+theme[main_fg]="#f5e6d3"
+
+# Title colors
+theme[title]="#ff6b35"
+
+# Highlight color for selected items
+theme[hi_fg]="#ff6b35"
+
+# Selected item background
+theme[selected_bg]="#2d3142"
+theme[selected_fg]="#ff6b35"
+
+# Inactive/Unfocused color
+theme[inactive_fg]="#4a4e69"
+
+# Processes box colors
+theme[proc_misc]="#8fa8a0"
+theme[cpu_box]="#ff6b35"
+theme[mem_box]="#d94f3d"
+theme[net_box]="#e8b4a0"
+theme[proc_box]="#8fa8a0"
+
+# CPU graph colors (low to high usage)
+theme[cpu_start]="#e8b4a0"
+theme[cpu_mid]="#ffb085"
+theme[cpu_end]="#ff6b35"
+
+# Memory/Disks colors
+theme[free_start]="#8fa8a0"
+theme[free_mid]="#b8c5bc"
+theme[free_end]="#f5e6d3"
+
+theme[cached_start]="#4a5568"
+theme[cached_mid]="#6b7a8f"
+theme[cached_end]="#8fa8a0"
+
+theme[available_start]="#e8b4a0"
+theme[available_mid]="#f4c7ab"
+theme[available_end]="#ffd6ba"
+
+theme[used_start]="#d94f3d"
+theme[used_mid]="#ff6b35"
+theme[used_end]="#ffb085"
+
+# Download/Upload colors
+theme[download_start]="#e8b4a0"
+theme[download_mid]="#f4c7ab"
+theme[download_end]="#ffd6ba"
+
+theme[upload_start]="#ff6b35"
+theme[upload_mid]="#ffb085"
+theme[upload_end]="#ffd6ba"
+
+# Process state colors
+theme[process_start]="#8fa8a0"
+theme[process_mid]="#b8c5bc"
+theme[process_end]="#f5e6d3"
+
+# Graph color (default graph color)
+theme[graph_text]="#f5e6d3"
+
+# Meter color
+theme[meter_bg]="#2d3142"
+
+# Graph colors for different metrics
+theme[temp_start]="#e8b4a0"
+theme[temp_mid]="#ffb085"
+theme[temp_end]="#d94f3d"
+
+# Divider line color
+theme[div_line]="#2d3142"
+
+# Alternative row color for processes
+theme[odd_row]="#1a1d2e"
+theme[even_row]="#232738"

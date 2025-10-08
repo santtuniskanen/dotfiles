@@ -1,0 +1,95 @@
+/**
+ * Red Fox Rofi Combi Configuration
+ * Save as ~/.config/rofi/config.rasi
+ */
+
+configuration {
+    modi: "combi,drun,run,window,ssh";
+    combi-modi: "drun,run,window";
+    
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+    
+    display-combi: "🦊 Search";
+    display-drun: " Apps";
+    display-run: " Run";
+    display-window: "󰖯 Windows";
+    display-ssh: " SSH";
+    
+    font: "JetBrainsMono Nerd Font 12";
+    
+    sidebar-mode: true;
+    
+    matching: "fuzzy";
+    sort: true;
+    sorting-method: "fzf";
+    
+    kb-mode-next: "Control+Tab";
+    kb-mode-previous: "Control+Shift+Tab";
+    kb-row-up: "Up,Control+k";
+    kb-row-down: "Down,Control+j";
+    kb-accept-entry: "Return,KP_Enter";
+    kb-remove-to-eol: "";
+    kb-remove-char-back: "BackSpace";
+}
+
+@import "redfox.rasi"
+
+* {
+    bg: #1a1d2e;
+    bg-light: #232738;
+    bg-lighter: #2d3142;
+    fg: #f5e6d3;
+    fg-dim: #d0c4b3;
+    
+    orange: #ff6b35;
+    red: #d94f3d;
+    green: #e8b4a0;
+    yellow: #ffb085;
+    blue: #6b7a8f;
+    cyan: #8fa8a0;
+}
+
+window {
+    width: 50%;
+    height: 60%;
+}
+
+mainbox {
+    children: [ inputbar, message, listview, mode-switcher ];
+}
+
+listview {
+    lines: 12;
+    columns: 2;
+    fixed-columns: true;
+}
+
+element {
+    orientation: horizontal;
+    children: [ element-icon, element-text ];
+}
+
+element-icon {
+    size: 2em;
+    margin: 0 8px 0 0;
+}
+
+element.alternate.normal {
+    background-color: @bg;
+}
+
+element.alternate.active {
+    background-color: @bg-light;
+    text-color: @cyan;
+}
+
+element.selected.active {
+    background-color: @orange;
+    text-color: @bg;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+}

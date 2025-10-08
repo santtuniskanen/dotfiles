@@ -1,0 +1,178 @@
+/**
+ * Red Fox Rofi Theme
+ * Save as ~/.config/rofi/redfox.rasi
+ */
+
+* {
+    bg: #1a1d2e;
+    bg-light: #232738;
+    bg-lighter: #2d3142;
+    fg: #f5e6d3;
+    fg-dim: #d0c4b3;
+    
+    orange: #ff6b35;
+    red: #d94f3d;
+    green: #e8b4a0;
+    yellow: #ffb085;
+    blue: #6b7a8f;
+    cyan: #8fa8a0;
+    
+    background-color: transparent;
+    text-color: @fg;
+    font: "JetBrainsMono Nerd Font 12";
+}
+
+window {
+    background-color: @bg;
+    border: 2px;
+    border-color: @orange;
+    padding: 12px;
+    width: 600px;
+}
+
+mainbox {
+    background-color: transparent;
+    spacing: 12px;
+    children: [ inputbar, message, listview ];
+}
+
+inputbar {
+    background-color: @bg-light;
+    text-color: @fg;
+    border: 2px;
+    border-color: @bg-lighter;
+    padding: 8px 12px;
+    spacing: 8px;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    background-color: transparent;
+    text-color: @orange;
+    font: "JetBrainsMono Nerd Font Bold 12";
+}
+
+entry {
+    background-color: transparent;
+    text-color: @fg;
+    placeholder: "Search...";
+    placeholder-color: @fg-dim;
+}
+
+message {
+    background-color: @bg-light;
+    border: 2px;
+    border-color: @bg-lighter;
+    padding: 8px;
+}
+
+textbox {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+listview {
+    background-color: transparent;
+    lines: 8;
+    spacing: 4px;
+    scrollbar: true;
+    fixed-height: false;
+}
+
+scrollbar {
+    width: 4px;
+    background-color: @bg-lighter;
+    handle-color: @orange;
+    handle-width: 4px;
+}
+
+element {
+    background-color: transparent;
+    text-color: @fg;
+    padding: 8px 12px;
+    spacing: 8px;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element normal.urgent {
+    background-color: @red;
+    text-color: @bg;
+}
+
+element normal.active {
+    background-color: @bg-light;
+    text-color: @orange;
+}
+
+element selected.normal {
+    background-color: @orange;
+    text-color: @bg;
+    font: "JetBrainsMono Nerd Font Bold 12";
+}
+
+element selected.urgent {
+    background-color: @red;
+    text-color: @bg;
+}
+
+element selected.active {
+    background-color: @orange;
+    text-color: @bg;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element alternate.urgent {
+    background-color: @red;
+    text-color: @bg;
+}
+
+element alternate.active {
+    background-color: @bg-light;
+    text-color: @orange;
+}
+
+element-icon {
+    background-color: transparent;
+    size: 1.2em;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+}
+
+error-message {
+    background-color: @bg;
+    border: 2px;
+    border-color: @red;
+    padding: 12px;
+}
+
+/* Mode switcher */
+mode-switcher {
+    background-color: @bg-light;
+    border: 2px;
+    border-color: @bg-lighter;
+    padding: 4px;
+    spacing: 4px;
+}
+
+button {
+    background-color: transparent;
+    text-color: @fg-dim;
+    padding: 6px 12px;
+}
+
+button selected {
+    background-color: @orange;
+    text-color: @bg;
+    font: "JetBrainsMono Nerd Font Bold 12";
+}
