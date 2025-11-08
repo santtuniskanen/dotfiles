@@ -1,7 +1,7 @@
 -- colorscheme
-vim.cmd.colorscheme('redfox')
+vim.cmd.colorscheme('rose-pine-dawn')
 
--- set basic stuff
+-- set basic options
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
@@ -33,10 +33,8 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
--- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-    -- Telescope
     {
       "nvim-telescope/telescope.nvim",
       dependencies = { "nvim-lua/plenary.nvim" },
@@ -48,8 +46,6 @@ require("lazy").setup({
         keymap("n", "<leader>fh", builtin.help_tags, { desc = "Help tags" })
       end,
     },
-
-    -- Treesitter (better syntax highlighting)
     {
       "nvim-treesitter/nvim-treesitter",
       build = ":TSUpdate",
@@ -62,8 +58,6 @@ require("lazy").setup({
         })
       end,
     },
-
-    -- Lualine (statusline)
     {
       "nvim-lualine/lualine.nvim",
       dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -77,8 +71,6 @@ require("lazy").setup({
         })
       end,
     },
-
-    -- Gitsigns
     {
       "lewis6991/gitsigns.nvim",
       config = function()
@@ -93,8 +85,6 @@ require("lazy").setup({
         })
       end,
     },
-
-    -- nvim-cmp (autocompletion)
     {
       "hrsh7th/nvim-cmp",
       dependencies = {
@@ -148,44 +138,41 @@ require("lazy").setup({
         })
       end,
     },
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        config = true
+    },
   },
-  -- automatically check for plugin updates
   checker = { enabled = true },
 })
 
--- Global LSP configuration
 vim.lsp.config('*', {
   on_attach = function(client, bufnr)
     local opts = { buffer = bufnr, noremap = true, silent = true }
 
-    -- Navigation
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
     vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
 
-    -- Documentation
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
 
-    -- Code actions
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format({ async = true }) end, opts)
 
-    -- Diagnostics
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
     vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
     vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
   end,
 
-  -- Add cmp capabilities for better autocompletion
   capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities()),
 })
 
--- C/C++ (clangd)
 vim.lsp.config.clangd = {
   cmd = {
     "clangd",
@@ -199,7 +186,6 @@ vim.lsp.config.clangd = {
   filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
 }
 
--- Go (gopls)
 vim.lsp.config.gopls = {
   cmd = { 'gopls' },
   root_markers = { 'go.mod', 'go.work', '.git' },
@@ -216,7 +202,6 @@ vim.lsp.config.gopls = {
   },
 }
 
--- Python (basedpyright)
 vim.lsp.config.basedpyright = {
   cmd = { 'basedpyright-langserver', '--stdio' },
   root_markers = { 'pyproject.toml', 'setup.py', 'requirements.txt', '.git' },
@@ -232,14 +217,12 @@ vim.lsp.config.basedpyright = {
   },
 }
 
--- Zig (zls)
 vim.lsp.config.zls = {
   cmd = { 'zls' },
   root_markers = { 'build.zig', '.git' },
   filetypes = { 'zig' },
 }
 
--- Rust (rust-analyzer)
 vim.lsp.config.rust_analyzer = {
   cmd = { 'rust-analyzer' },
   root_markers = { 'Cargo.toml' },
@@ -259,7 +242,6 @@ vim.lsp.config.rust_analyzer = {
   },
 }
 
--- Enable servers conditionally based on filetype
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'c', 'cpp' },
   callback = function()
@@ -298,7 +280,6 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
--- Diagnostic settings
 vim.diagnostic.config({
   virtual_text = true,
   signs = true,
@@ -311,7 +292,6 @@ vim.diagnostic.config({
   },
 })
 
--- Diagnostic settings
 vim.diagnostic.config({
   virtual_text = true,
   signs = {
