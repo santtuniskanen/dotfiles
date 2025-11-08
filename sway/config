@@ -37,7 +37,7 @@ bindsym Shift+Mod4+s exec grim -g "$(slurp)" - | wl-copy
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
-output * bg /home/salamanteri/Pictures/Wallpapers/foxy.png fill
+output * bg /home/salamanteri/Pictures/Wallpapers/leafy-dawn.png fill
 #
 # Example configuration:
 output DP-2 transform 90 mode 1920x1080@144Hz
@@ -165,6 +165,10 @@ client.background       $bg
     # with Alt + Tab;
     bindsym Mod1+Tab workspace next
     bindsym Mod1+Shift+Tab workspace prev
+
+    # potential workspace switcher (like macos)
+    bindsym F3 exec ~/.config/sway/workspace-switcher.sh
+
 #
 # Layout stuff:
 #
@@ -235,3 +239,8 @@ gaps inner 10
 gaps outer 10
 
 include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
+
+input type:pointer {
+    accel_profile flat
+        pointer_accel 0.6
+}
