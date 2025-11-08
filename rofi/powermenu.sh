@@ -1,17 +1,15 @@
 #!/usr/bin/env bash
 # Red Fox Rofi Power Menu
-# Save as ~/.config/rofi/powermenu.sh and make executable: chmod +x ~/.config/rofi/powermenu.sh
 
-theme="$HOME/.config/rofi/redfox.rasi"
+theme="$HOME/.config/rofi/rose-pine-dawn.rasi"
 
 # Options
 shutdown="⏻ Shutdown"
-reboot=" Reboot"
-lock=" Lock"
+reboot="󰜉 Reboot"
+lock=" Lock"
 suspend="⏾ Suspend"
 logout="󰍃 Logout"
 
-# Rofi command
 rofi_cmd() {
     rofi -dmenu \
         -p "Power Menu" \
@@ -21,12 +19,10 @@ rofi_cmd() {
         -theme-str 'listview {lines: 5;}'
 }
 
-# Pass variables to rofi
 run_rofi() {
     echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi_cmd
 }
 
-# Confirmation dialog
 confirm_exit() {
     rofi -dmenu \
         -p 'Confirmation' \
@@ -36,7 +32,6 @@ confirm_exit() {
         -theme-str 'listview {lines: 2;}' <<< $'Yes\nNo'
 }
 
-# Execute command
 run_cmd() {
     selected="$(confirm_exit "$1")"
     if [[ "$selected" == "Yes" ]]; then
@@ -54,7 +49,6 @@ run_cmd() {
     fi
 }
 
-# Actions
 chosen="$(run_rofi)"
 case ${chosen} in
     $shutdown)

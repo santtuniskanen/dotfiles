@@ -1,93 +1,77 @@
-# Red Fox Starship Configuration
-# Save this as ~/.config/starship.toml
-
-# Color palette
-# bg: #1a1d2e
-# fg: #f5e6d3
-# orange: #ff6b35
-# red: #d94f3d
-# green: #e8b4a0
-# yellow: #ffb085
-# blue: #6b7a8f
-# cyan: #8fa8a0
-# rose: #b8405e
+# Rosé Pine Dawn theme for Starship
+# Place this file at ~/.config/starship.toml
 
 format = """
-[](fg:#ff6b35)\
-$os\
+[╭─](subtle)\
 $username\
-[](bg:#d94f3d fg:#ff6b35)\
+$hostname\
 $directory\
-[](fg:#d94f3d bg:#e8b4a0)\
 $git_branch\
 $git_status\
-[](fg:#e8b4a0 bg:#8fa8a0)\
-$c\
-$elixir\
-$elm\
-$golang\
-$gradle\
-$haskell\
-$java\
-$julia\
 $nodejs\
-$nim\
-$rust\
-$scala\
 $python\
-[](fg:#8fa8a0 bg:#6b7a8f)\
+$rust\
+$golang\
+$php\
+$java\
 $docker_context\
-[](fg:#6b7a8f bg:#4a5568)\
-$time\
-[ ](fg:#4a5568)\
 $line_break\
-$character"""
+[╰─](subtle)$character"""
 
-# Disable the blank line at the start of the prompt
-add_newline = false
+# Palette definition
+palette = "rose_pine_dawn"
 
-# OS symbol
-[os]
-style = "bg:#ff6b35 fg:#1a1d2e"
-disabled = false
+[palettes.rose_pine_dawn]
+base = "#faf4ed"
+surface = "#fffaf3"
+overlay = "#f2e9e1"
+muted = "#9893a5"
+subtle = "#797593"
+text = "#575279"
+love = "#b4637a"
+gold = "#ea9d34"
+rose = "#d7827e"
+pine = "#286983"
+foam = "#56949f"
+iris = "#907aa9"
+highlight_low = "#f4ede8"
+highlight_med = "#dfdad9"
+highlight_high = "#cecacd"
 
-[os.symbols]
-Fedora = " "
-Ubuntu = " "
-Linux = " "
-Macos = " "
+[character]
+success_symbol = "[❯](pine)"
+error_symbol = "[❯](love)"
+vimcmd_symbol = "[❮](foam)"
 
-# Username
-[username]
-show_always = true
-style_user = "bg:#ff6b35 fg:#1a1d2e"
-style_root = "bg:#ff6b35 fg:#1a1d2e"
-format = '[ $user ]($style)'
-disabled = false
-
-# Directory
 [directory]
-style = "bg:#d94f3d fg:#f5e6d3"
-format = "[ $path ]($style)"
+style = "bold pine"
 truncation_length = 3
-truncation_symbol = "…/"
+truncate_to_repo = true
+format = "[$path]($style)[$read_only]($read_only_style) "
+read_only = " 󰌾"
+read_only_style = "love"
 
-[directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = " "
-"Pictures" = " "
+[username]
+style_user = "gold"
+style_root = "bold love"
+format = "[$user]($style) "
+disabled = false
+show_always = false
 
-# Git branch
+[hostname]
+ssh_only = true
+style = "foam"
+format = "[@$hostname]($style) "
+disabled = false
+
 [git_branch]
-symbol = "󰊢"
-style = "bg:#e8b4a0 fg:#1a1d2e"
-format = '[ $symbol $branch ]($style)'
+symbol = " "
+style = "iris"
+format = "[$symbol$branch(:$remote_branch)]($style) "
 
-# Git status
 [git_status]
-style = "bg:#e8b4a0 fg:#1a1d2e"
-format = '[$all_status$ahead_behind ]($style)'
+style = "rose"
+format = "([$all_status$ahead_behind]($style) )"
 conflicted = "="
 ahead = "⇡${count}"
 behind = "⇣${count}"
@@ -100,45 +84,57 @@ staged = "+${count}"
 renamed = "»${count}"
 deleted = "✘${count}"
 
-# Programming languages
-[c]
-symbol = ""
-style = "bg:#8fa8a0 fg:#1a1d2e"
-format = '[ $symbol ($version) ]($style)'
+[nodejs]
+symbol = " "
+style = "foam"
+format = "[$symbol($version )]($style)"
+
+[python]
+symbol = " "
+style = "gold"
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
+[rust]
+symbol = " "
+style = "love"
+format = "[$symbol($version )]($style)"
+
+[golang]
+symbol = " "
+style = "pine"
+format = "[$symbol($version )]($style)"
+
+[php]
+symbol = " "
+style = "iris"
+format = "[$symbol($version )]($style)"
+
+[java]
+symbol = " "
+style = "rose"
+format = "[$symbol($version )]($style)"
 
 [docker_context]
 symbol = " "
-style = "bg:#6b7a8f fg:#f5e6d3"
-format = '[ $symbol $context ]($style)'
+style = "foam"
+format = "[$symbol$context]($style) "
+only_with_files = true
 
-[golang]
-symbol = "󰟓"
-style = "bg:#8fa8a0 fg:#1a1d2e"
-format = '[ $symbol ($version) ]($style)'
+[package]
+symbol = "󰏗 "
+style = "muted"
+format = "[$symbol$version]($style) "
 
-[rust]
-symbol = ""
-style = "bg:#8fa8a0 fg:#1a1d2e"
-format = '[ $symbol ($version) ]($style)'
+[cmd_duration]
+min_time = 500
+style = "muted"
+format = "[$duration]($style) "
 
-[python]
-symbol = ""
-style = "bg:#8fa8a0 fg:#1a1d2e"
-format = '[ $symbol ($version) ]($style)'
-
-# Time
 [time]
 disabled = false
-time_format = "%R" # Hour:Minute Format
-style = "bg:#4a5568 fg:#f5e6d3"
-format = '[ $time ]($style)'
+time_format = "%R"
+style = "subtle"
+format = '[$time]($style) '
 
-# Line break
 [line_break]
 disabled = false
-
-# Character (prompt symbol)
-[character]
-success_symbol = "[❯](bold #ff6b35)"
-error_symbol = "[❯](bold #d94f3d)"
-vimcmd_symbol = "[❮](bold #ff6b35)"

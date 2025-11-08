@@ -1,4 +1,5 @@
 # Red Fox btop theme
+# Save as ~/.config/btop/themes/redfox.theme
 
 # Main background and foreground
 theme[main_bg]="#1a1d2e"

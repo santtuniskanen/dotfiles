@@ -1,3 +1,6 @@
+# Rosé Pine Dawn Dunst Configuration
+# Save as ~/.config/dunst/dunstrc
+
 [global]
     # Display
     monitor = 0
@@ -20,8 +23,8 @@
     padding = 15
     horizontal_padding = 15
     frame_width = 2
-    frame_color = "#ff6b35"
-    separator_color = "#2d3142"
+    frame_color = "#286983"
+    separator_color = "#dfdad9"
     corner_radius = 8
     
     # Text
@@ -34,7 +37,7 @@
     # Icons
     icon_position = left
     max_icon_size = 48
-    icon_path = /usr/share/icons/Papirus-Dark/48x48/status:/usr/share/icons/Papirus-Dark/48x48/devices
+    icon_path = /usr/share/icons/Papirus/48x48/status:/usr/share/icons/Papirus/48x48/devices
     
     # Misc
     show_age_threshold = 60
@@ -43,20 +46,26 @@
     hide_duplicate_count = false
     show_indicators = yes
     
+    # Mouse actions
+    mouse_left_click = do_action
+    mouse_middle_click = close_all
+    mouse_right_click = close_current
+
 [urgency_low]
-    background = "#232738"
-    foreground = "#f5e6d3"
-    frame_color = "#8fa8a0"
+    background = "#fffaf3"
+    foreground = "#575279"
+    frame_color = "#56949f"
     timeout = 5
     
 [urgency_normal]
-    background = "#232738"
-    foreground = "#f5e6d3"
-    frame_color = "#ff6b35"
+    background = "#fffaf3"
+    foreground = "#575279"
+    frame_color = "#286983"
     timeout = 5
     
 [urgency_critical]
-    background = "#1a1d2e"
-    foreground = "#ffffff"
-    frame_color = "#d94f3d"
+    background = "#faf4ed"
+    foreground = "#575279"
+    frame_color = "#b4637a"
     timeout = 0
+

@@ -1,30 +1,8 @@
 /**
- * Rosé Pine Dawn Rofi Combi Configuration
- * Save as ~/.config/rofi/config.rasi
+ * Rosé Pine Dawn theme for Rofi
+ * Save as ~/.config/rofi/rose-pine-dawn.rasi
+ * Then use with: rofi -show drun -theme rose-pine-dawn
  */
-configuration {
-    modi: "combi,drun,run,window,ssh";
-    combi-modi: "drun,run,window";
-    show-icons: true;
-    icon-theme: "Papirus";
-    display-combi: "Search";
-    display-drun: "";
-    display-run: " Run";
-    display-window: "󰖯 Windows";
-    display-ssh: " SSH";
-    font: "JetBrainsMono Nerd Font 12";
-    sidebar-mode: true;
-    matching: "fuzzy";
-    sort: true;
-    sorting-method: "fzf";
-    kb-mode-next: "Control+Tab";
-    kb-mode-previous: "Control+Shift+Tab";
-    kb-row-up: "Up,Control+k";
-    kb-row-down: "Down,Control+j";
-    kb-accept-entry: "Return,KP_Enter";
-    kb-remove-to-eol: "";
-    kb-remove-char-back: "BackSpace";
-}
 
 * {
     /* Rosé Pine Dawn colors */
@@ -46,22 +24,21 @@ configuration {
 
     background-color: transparent;
     text-color:       @text;
+    font:             "JetBrainsMono Nerd Font 12";
 }
 
 window {
-    width: 40%;
-    height: 40%;
     background-color: @base;
     border:           2px;
     border-color:     @overlay;
     border-radius:    8px;
     padding:          16px;
+    width:            600px;
 }
 
 mainbox {
     background-color: transparent;
     spacing:          12px;
-    children: [ inputbar, message, listview, mode-switcher ];
 }
 
 inputbar {
@@ -72,7 +49,6 @@ inputbar {
     border-radius:    6px;
     padding:          12px;
     spacing:          8px;
-    children: [ prompt, entry ];
 }
 
 prompt {
@@ -97,15 +73,13 @@ message {
 }
 
 textbox {
-    background-color: transparent;
     text-color: @text;
 }
 
 listview {
     background-color: transparent;
-    lines: 12;
-    columns: 2;
-    fixed-columns: true;
+    columns:          1;
+    lines:            8;
     spacing:          4px;
     cycle:            false;
     dynamic:          true;
@@ -117,70 +91,64 @@ element {
     text-color:       @text;
     border-radius:    6px;
     padding:          8px;
-    orientation: horizontal;
-    children: [ element-icon, element-text ];
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color:       @text;
+}
+
+element normal.urgent {
+    background-color: @love;
+    text-color:       @base;
+}
+
+element normal.active {
+    background-color: @pine;
+    text-color:       @base;
+}
+
+element selected.normal {
+    background-color: @highlight-med;
+    text-color:       @pine;
+    border:           2px;
+    border-color:     @pine;
+}
+
+element selected.urgent {
+    background-color: @love;
+    text-color:       @base;
+}
+
+element selected.active {
+    background-color: @pine;
+    text-color:       @base;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color:       @text;
+}
+
+element alternate.urgent {
+    background-color: @love;
+    text-color:       @base;
+}
+
+element alternate.active {
+    background-color: @pine;
+    text-color:       @base;
 }
 
 element-icon {
     background-color: transparent;
-    size: 2em;
-    margin: 0 8px 0 0;
+    size:             1.2em;
+    padding:          0 8px 0 0;
 }
 
 element-text {
     background-color: transparent;
-    text-color: inherit;
-}
-
-element.normal.normal {
-    background-color: transparent;
-    text-color:       @text;
-}
-
-element.alternate.normal {
-    background-color: @base;
-    text-color:       @text;
-}
-
-element.normal.urgent {
-    background-color: @love;
-    text-color:       @base;
-}
-
-element.alternate.urgent {
-    background-color: @love;
-    text-color:       @base;
-}
-
-element.normal.active {
-    background-color: @highlight-low;
-    text-color:       @foam;
-}
-
-element.alternate.active {
-    background-color: @surface;
-    text-color:       @foam;
-}
-
-element.selected.normal {
-    background-color: @pine;
-    text-color:       @base;
-    border:           2px;
-    border-color:     @pine;
-}
-
-element.selected.urgent {
-    background-color: @love;
-    text-color:       @base;
-    border:           2px;
-    border-color:     @love;
-}
-
-element.selected.active {
-    background-color: @pine;
-    text-color:       @base;
-    border:           2px;
-    border-color:     @pine;
+    text-color:       inherit;
 }
 
 scrollbar {
@@ -202,12 +170,12 @@ button {
     border:           2px;
     border-color:     @overlay;
     border-radius:    6px;
-    padding:          8px 16px;
+    padding:          8px;
 }
 
 button selected {
-    background-color: @iris;
+    background-color: @pine;
     text-color:       @base;
-    border-color:     @iris;
+    border-color:     @pine;
 }
 

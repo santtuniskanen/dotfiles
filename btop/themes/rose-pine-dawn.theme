@@ -1,0 +1,81 @@
+# Rosé Pine Dawn btop theme
+# Save as ~/.config/btop/themes/rose-pine-dawn.theme
+
+# Main background and foreground
+theme[main_bg]="#faf4ed"
+theme[main_fg]="#575279"
+
+# Title colors
+theme[title]="#907aa9"
+
+# Highlight color for selected items
+theme[hi_fg]="#286983"
+
+# Selected item background
+theme[selected_bg]="#f2e9e1"
+theme[selected_fg]="#286983"
+
+# Inactive/Unfocused color
+theme[inactive_fg]="#9893a5"
+
+# Processes box colors
+theme[proc_misc]="#56949f"
+theme[cpu_box]="#286983"
+theme[mem_box]="#d7827e"
+theme[net_box]="#907aa9"
+theme[proc_box]="#56949f"
+
+# CPU graph colors (low to high usage)
+theme[cpu_start]="#56949f"
+theme[cpu_mid]="#286983"
+theme[cpu_end]="#907aa9"
+
+# Memory/Disks colors
+theme[free_start]="#56949f"
+theme[free_mid]="#286983"
+theme[free_end]="#907aa9"
+
+theme[cached_start]="#9893a5"
+theme[cached_mid]="#797593"
+theme[cached_end]="#575279"
+
+theme[available_start]="#ea9d34"
+theme[available_mid]="#d7827e"
+theme[available_end]="#b4637a"
+
+theme[used_start]="#b4637a"
+theme[used_mid]="#d7827e"
+theme[used_end]="#ea9d34"
+
+# Download/Upload colors
+theme[download_start]="#56949f"
+theme[download_mid]="#286983"
+theme[download_end]="#907aa9"
+
+theme[upload_start]="#d7827e"
+theme[upload_mid]="#b4637a"
+theme[upload_end]="#ea9d34"
+
+# Process state colors
+theme[process_start]="#56949f"
+theme[process_mid]="#286983"
+theme[process_end]="#907aa9"
+
+# Graph color (default graph color)
+theme[graph_text]="#575279"
+
+# Meter color
+theme[meter_bg]="#f2e9e1"
+
+# Graph colors for different metrics
+theme[temp_start]="#56949f"
+theme[temp_mid]="#ea9d34"
+theme[temp_end]="#b4637a"
+
+# Divider line color
+theme[div_line]="#dfdad9"
+
+# Alternative row color for processes
+theme[odd_row]="#faf4ed"
+theme[even_row]="#fffaf3"
+
