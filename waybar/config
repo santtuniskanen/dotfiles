@@ -1,4 +1,5 @@
 {
+    "output": "DP-1",
     "layer": "top",
     "position": "top",
     "height": 32,
@@ -6,7 +7,7 @@
     
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["clock"],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "battery"],
+    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "sway/language", "cpu", "memory"],
 
     "sway/workspaces": {
         "disable-scroll": false,
@@ -56,23 +57,6 @@
         "interval": 2
     },
 
-    "temperature": {
-        "critical-threshold": 80,
-        "format": "TEMP {temperatureC}°",
-        "format-icons": ["", "", ""]
-    },
-
-    "battery": {
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "BAT {capacity}%",
-        "format-charging": "BAT {capacity}% ",
-        "format-plugged": "BAT {capacity}% ",
-        "format-icons": ["", "", "", "", ""]
-    },
-
     "network": {
         "format-wifi": "NET {signalStrength}%",
         "format-ethernet": "NET ",
@@ -100,8 +84,9 @@
         "scroll-step": 5
     },
 
-    "tray": {
-        "icon-size": 16,
-        "spacing": 8
+    "sway/language": {
+        "format": "<span text_transform='uppercase'>{}</span>",
+        "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
+        "tooltip-format": "{long}"
     }
 }

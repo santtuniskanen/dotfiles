@@ -1,9 +1,9 @@
-/* Rosé Pine Dawn theme for Waybar - Minimal Style */
+/* Rosé Pine Dawn theme for Waybar */
 
 * {
     border: none;
     border-radius: 0;
-    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
+    font-family: "JetBrainsMono Nerd Font";
     font-size: 13px;
     min-height: 0;
 }
@@ -52,7 +52,6 @@ window#waybar {
     border-bottom: 2px solid #9893a5;
 }
 
-/* Mode */
 #mode {
     background: rgba(234, 157, 52, 0.2);
     color: #ea9d34;
@@ -62,14 +61,12 @@ window#waybar {
     font-weight: 500;
 }
 
-/* Clock */
 #clock {
     color: #575279;
     padding: 0px 16px;
     font-weight: 500;
 }
 
-/* Idle Inhibitor */
 #idle_inhibitor {
     color: #9893a5;
     padding: 0px 8px;
@@ -80,51 +77,18 @@ window#waybar {
     color: #ea9d34;
 }
 
-/* CPU */
 #cpu {
     color: #286983;
     padding: 0px 8px;
     margin: 0px 4px;
 }
 
-/* Memory */
 #memory {
     color: #56949f;
     padding: 0px 8px;
     margin: 0px 4px;
 }
 
-/* Temperature */
-#temperature {
-    color: #907aa9;
-    padding: 0px 8px;
-    margin: 0px 4px;
-}
-
-#temperature.critical {
-    color: #b4637a;
-}
-
-/* Battery */
-#battery {
-    color: #ea9d34;
-    padding: 0px 8px;
-    margin: 0px 4px;
-}
-
-#battery.charging {
-    color: #286983;
-}
-
-#battery.warning:not(.charging) {
-    color: #ea9d34;
-}
-
-#battery.critical:not(.charging) {
-    color: #b4637a;
-}
-
-/* Network */
 #network {
     color: #907aa9;
     padding: 0px 8px;
@@ -135,7 +99,6 @@ window#waybar {
     color: #b4637a;
 }
 
-/* PulseAudio */
 #pulseaudio {
     color: #d7827e;
     padding: 0px 8px;
@@ -146,22 +109,6 @@ window#waybar {
     color: #9893a5;
 }
 
-/* System Tray */
-#tray {
-    padding: 0px 8px;
-    margin: 0px 4px;
-}
-
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    color: #b4637a;
-}
-
-/* Tooltips */
 tooltip {
     background: rgba(255, 250, 243, 0.98);
     border: 1px solid rgba(242, 233, 225, 0.8);
@@ -172,4 +119,10 @@ tooltip {
 tooltip label {
     color: #575279;
     padding: 4px;
+}
+
+#language {
+    color: #9ccfd8;
+    padding: 0px 8px;
+    margin: 0px 4px;
 }
