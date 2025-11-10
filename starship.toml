@@ -1,6 +1,3 @@
-# Rosé Pine Dawn theme for Starship
-# Place this file at ~/.config/starship.toml
-
 format = """
 [╭─](subtle)\
 $username\
@@ -8,17 +5,14 @@ $hostname\
 $directory\
 $git_branch\
 $git_status\
-$nodejs\
 $python\
 $rust\
 $golang\
-$php\
 $java\
 $docker_context\
 $line_break\
 [╰─](subtle)$character"""
 
-# Palette definition
 palette = "rose_pine_dawn"
 
 [palettes.rose_pine_dawn]
@@ -52,14 +46,14 @@ read_only = " 󰌾"
 read_only_style = "love"
 
 [username]
-style_user = "gold"
+style_user = "love"
 style_root = "bold love"
 format = "[$user]($style) "
 disabled = false
-show_always = false
+show_always = true
 
 [hostname]
-ssh_only = true
+ssh_only = false
 style = "foam"
 format = "[@$hostname]($style) "
 disabled = false
@@ -84,29 +78,19 @@ staged = "+${count}"
 renamed = "»${count}"
 deleted = "✘${count}"
 
-[nodejs]
-symbol = " "
-style = "foam"
-format = "[$symbol($version )]($style)"
-
 [python]
-symbol = " "
+symbol = ""
 style = "gold"
 format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 
 [rust]
-symbol = " "
+symbol = ""
 style = "love"
 format = "[$symbol($version )]($style)"
 
 [golang]
-symbol = " "
+symbol = "󰟓"
 style = "pine"
-format = "[$symbol($version )]($style)"
-
-[php]
-symbol = " "
-style = "iris"
 format = "[$symbol($version )]($style)"
 
 [java]
