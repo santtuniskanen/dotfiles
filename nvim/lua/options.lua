@@ -7,7 +7,9 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
-vim.opt.wrap = false
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.breakindent = true
 vim.opt.list = false
 vim.opt.listchars = { tab = "→ ", trail = "·", lead = "·", nbsp = "␣" }
 vim.opt.ignorecase = true
@@ -32,29 +34,9 @@ vim.opt.fillchars = { eob = " " }
 vim.opt.autoread = true
 vim.cmd("filetype plugin indent on")
 
--- use parsers from the old nvim-treesitter install
-vim.opt.runtimepath:append(vim.fn.expand("~/.local/share/nvim/lazy/nvim-treesitter"))
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "python",
-    callback = function()
-        vim.bo.keywordprg = ":echo"
-    end,
-})
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, { command = "checktime" })
 
-vim.cmd("colorscheme default")
 vim.cmd("syntax on")
-
--- enable treesitter highlighting for filetypes we have parsers for
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "python", "go", "lua", "javascript", "rust", "zig", "markdown" },
-    callback = function(ev)
-        local ok, _ = pcall(vim.treesitter.start, ev.buf)
-        if not ok then
-            vim.cmd("syntax on") -- fallback to regex syntax
-        end
-    end,
-})
 
 vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
 vim.api.nvim_set_hl(0, "FloatBorder", { ctermfg = 15 })
@@ -67,10 +49,6 @@ vim.diagnostic.config({
     underline = true,
 })
 
-
-
-
--- Toggle whitespace visibility
 vim.keymap.set("n", "<leader>w", function()
     vim.opt.list = not vim.o.list
     vim.notify("Whitespace " .. (vim.o.list and "on" or "off"), vim.log.levels.INFO)

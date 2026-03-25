@@ -65,3 +65,38 @@
 |-----|--------|
 | `<leader>gd` | Git diff (current file) |
 | `<leader>gb` | Git blame (current file) |
+
+## Editing
+| Key | Action |
+|-----|--------|
+| `o` / `O` | New line below/above and insert |
+| `A` / `I` | Insert at end/start of line |
+| `ci"` / `ci(` | Change inside quotes/parens (works with `d`, `y` too) |
+| `gg=G` | Re-indent entire file |
+| `J` | Join line below to current |
+| `~` | Toggle case of character |
+| `<C-a>` / `<C-x>` | Increment/decrement number under cursor |
+
+## Navigation
+
+| Key | Action |
+|-----|--------|
+| `%` | jump to matching bracket/paren
+| `*` | search for word under cursor
+| `''` | jump back to last position
+| `<C-o> / <C-i>` | jump back/forward through jump history
+
+## Visual Mode
+| Key | Action |
+|-----|--------|
+| `V` | Linewise visual select |
+| `o` | Move cursor to other end of selection |
+| `gv` | Reselect last visual selection |
+| `>` / `<` | Indent/unindent selection |
+| `<S-Down>` / `<S-Up>` | Move selected lines down/up |
+
+## Marks
+| Key | Action |
+|-----|--------|
+| `ma` | Set mark `a` |
+| `` `a `` | Jump to mark `a` |

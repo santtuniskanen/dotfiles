@@ -1,7 +1,3 @@
--- keybinds.lua
-
--- ─── Terminal ────────────────────────────────────────────────────────────────
-
 vim.keymap.set("n", "<leader>t", function()
     local width = math.floor(vim.o.columns * 0.6)
     local height = math.floor(vim.o.lines * 0.6)
@@ -32,9 +28,6 @@ vim.keymap.set("n", "<leader>t", function()
     })
     vim.cmd("startinsert")
 end, { desc = "Open terminal float" })
-
-
--- ─── Help ─────────────────────────────────────────────────────────────────────
 
 vim.keymap.set("n", "<leader>?", function()
     local md = vim.fn.fnamemodify(debug.getinfo(1, "S").source:sub(2), ":h:h") .. "/KEYBINDS.md"
@@ -80,9 +73,6 @@ vim.keymap.set("n", "<leader>?", function()
     end, { buffer = buf, nowait = true })
 end, { desc = "Show keybinds" })
 
-
--- ─── Quickfix ─────────────────────────────────────────────────────────────────
-
 vim.keymap.set("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
 vim.keymap.set("n", "[q", vim.cmd.cprev, { desc = "Prev quickfix" })
 vim.keymap.set("n", "<leader>q", function()
@@ -94,16 +84,12 @@ vim.keymap.set("n", "<leader>q", function()
     end
 end, { desc = "Toggle quickfix" })
 
-
--- ─── Navigation ───────────────────────────────────────────────────────────────
-
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
-
-
--- ─── LSP ──────────────────────────────────────────────────────────────────────
+vim.keymap.set("v", "<S-Down>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "<S-Up>", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, { desc = "Signature help" })
 
@@ -151,9 +137,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
     end,
 })
-
-
--- ─── Completion ───────────────────────────────────────────────────────────────
 
 vim.keymap.set("i", "<Tab>", function()
     if vim.fn.pumvisible() == 1 then return "<C-n>" end
